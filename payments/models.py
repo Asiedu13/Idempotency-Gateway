@@ -23,4 +23,5 @@ class Transaction(models.Model):
     currency = models.CharField(choices=SupportedCurrencies.choices, max_length=10, default=SupportedCurrencies.GHS)
     created_at = models.DateTimeField(auto_now_add=True)
     idempotency_key = models.CharField(max_length=20, unique=True, primary_key=True)
+    payload_hash = models.CharField(max_length=100)
     status = models.CharField(choices=TransactionStatus.choices, default=TransactionStatus.COMPLETED, max_length=10)
