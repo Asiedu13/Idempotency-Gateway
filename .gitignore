@@ -1,0 +1,86 @@
+# ======================
+# Python bytecode
+# ======================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# ======================
+# Virtual environments
+# ======================
+venv/
+env/
+.venv/
+ENV/
+
+# ======================
+# Django stuff
+# ======================
+db.sqlite3
+*.log
+
+# Local settings (VERY IMPORTANT)
+local_settings.py
+*.env
+
+# Media / static uploads (if local dev)
+media/
+staticfiles/
+
+# ======================
+# Migrations (ONLY if you reset DB often)
+# ⚠️ Normally DO NOT ignore migrations in real projects
+# ======================
+# migrations/__pycache__/
+
+# ======================
+# IDEs / Editors
+# ======================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ======================
+# OS files
+# ======================
+.DS_Store
+Thumbs.db
+
+# ======================
+# Testing / coverage
+# ======================
+.coverage
+htmlcov/
+.pytest_cache/
+
+# ======================
+# Docker (if used)
+# ======================
+docker-compose.override.yml
+
+# ======================
+# Environment variables
+# ======================
+.env
+.env.local
+.env.*.local
+
+# ======================
+# Static build tools
+# ======================
+node_modules/
+dist/
+build/
+
+# ======================
+# Logs
+# ======================
+*.log
+logs/
+
+# ======================
+# PyCharm
+# ======================
+*.iml
