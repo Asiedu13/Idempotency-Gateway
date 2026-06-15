@@ -1,0 +1,10 @@
+[project]
+name = "idempotency-gateway"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "django>=4.2.30",
+    "djangorestframework>=3.16.1",
+]
