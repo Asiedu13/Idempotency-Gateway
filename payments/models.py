@@ -1,4 +1,5 @@
 from django.db import models
+from decimal import Decimal
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 class Transaction(models.Model):
@@ -15,7 +16,7 @@ class Transaction(models.Model):
         COMPLETED = "COMPLETED", "completed",
         FAILED = "FAILED", "failed"
 
-    amount = models.DecimalField("amount being paid", decimal_places=2, max_digits=10, validators=[MinValueValidator(0.0), MaxValueValidator(25000)])
+    amount = models.DecimalField("amount being paid", decimal_places=2, max_digits=10, validators=[MinValueValidator(Decimal(0.0)), MaxValueValidator(Decimal(25000.0))])
     phone_number = models.CharField("phone number of person paying", max_length=40)
     email = models.CharField("email of person paying", max_length=40)
     full_name = models.CharField("full name of person paying", max_length=50)
