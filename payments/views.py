@@ -6,8 +6,7 @@ from .models import Transaction
 from .utils import get_payload_hash
 import time
 
-# Create your views here.
-class TransactionsView(generics.CreateAPIView):
+class TransactionsViewV1(generics.CreateAPIView):
     serializer_class = TransactionSerializer
 
     def initial(self, request, *args, **kwargs):
@@ -20,7 +19,6 @@ class TransactionsView(generics.CreateAPIView):
 
     def post(self, request, *args, **kwargs):
         idem_key = request.headers.get('Idempotency-Key')
-
         payload_hash = get_payload_hash(request.data)
         self.idempotency_key = idem_key
         self.payload_hash = payload_hash
@@ -33,7 +31,7 @@ class TransactionsView(generics.CreateAPIView):
                     {
                         "error": "Idempotency key already used for a different request body."
                     },
-                    status=status.HTTP_409_CONFLICT  # or 422
+                    status=status.HTTP_409_CONFLICT
                 )
             # Repeated requests
             serializer = self.get_serializer(transaction)
