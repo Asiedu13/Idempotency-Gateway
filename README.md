@@ -139,6 +139,13 @@ The motivation is concrete: in a real Payment Service Provider, failing requests
 
 See **[CIRCUIT_BREAKER.md](docs/CIRCUIT_BREAKER.md)** for the full state machine, configuration knobs, request-flow diagram, operating procedures, and extension guidance.
 
+### Test the Circuit Breaker
+```bash
+uv run python simulate.py
+```
+
+`simulate.py` fires a burst of bad/good requests at `/api/v1/process-payment` so you can watch the breaker move from `CLOSED` → `OPEN` (subsequent requests return `503` with `Retry-After`) and includes a race-condition scenario that hammers the same idempotency key from many concurrent clients.
+
 ## Running tests
 
 ```bash
