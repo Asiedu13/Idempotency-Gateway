@@ -57,6 +57,9 @@ Requires Python 3.9+ and [uv](https://docs.astral.sh/uv/) as the package manager
 
 ```bash
 uv sync                              # creates .venv and installs deps from pyproject.toml
+
+source .venv/Scripts/activate # use created environment
+
 uv run python manage.py migrate
 uv run python manage.py createsuperuser   # optional, for /admin access
 uv run python manage.py runserver
@@ -105,6 +108,7 @@ curl -X POST http://localhost:8000/api/v1/process-payment \
     "currency": "GHS"
   }'
 ```
+**NB:** Making a request might yield a bad gateway. This is by design. Some requests are randomly made bad to test for the circuit breaker situation. View **[CIRCUIT_BREAKER.md](docs/CIRCUIT_BREAKER.md)** for more information on how it works.
 
 **Responses**
 
