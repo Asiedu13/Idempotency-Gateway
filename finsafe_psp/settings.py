@@ -123,3 +123,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+CIRCUIT_BREAKER = {
+    "FAILURE_THRESHOLD": 0.5,
+    "MIN_SAMPLES": 10,
+    "WINDOW_SECONDS": 60,
+    "COOLDOWN_SECONDS": 30,
+}
+
+PSP_STUB_FAILURE_RATE = 0.5
