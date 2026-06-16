@@ -24,7 +24,7 @@ async def main():
         # --- Scenario 1: Trigger the breaker (send 6 bad requests) ---
         print("\n=== Tripping the circuit breaker ===")
         for i in range(40):
-            await send_payment(client, str(uuid.uuid4()), amount=500, label=f"BAD-{i+1}")
+            await send_payment(client, str(uuid.uuid4()), amount=500, label=f"REQUEST-{i+1}")
 
         # --- Scenario 2: Confirm it's OPEN ---
         # print("\n=== Breaker should be OPEN now ===")
