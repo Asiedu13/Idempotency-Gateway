@@ -25,7 +25,7 @@ local_settings.py
 *.env
 
 # Media / static uploads (if local dev)
-media/
+#media/
 staticfiles/
 
 # ======================
